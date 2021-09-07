@@ -10,12 +10,35 @@ const App = () => {
         day: 'Feb 5th at 2:30PM',
         reminder: true,
     },
+    {
+      id: 2,
+      text: 'Chiro Appointment',
+      day: 'Feb 5th at 2:30PM',
+      reminder: true,
+  },
+  {
+    id: 3,
+    text: 'Booty Call',
+    day: 'Feb 5th at 2:30PM',
+    reminder: true,
+  },
 ])
+// Delete a task
+const deleteTask = (id) => {
+  setTasks(tasks.filter((task) => task.id !== id))
+}
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks}/>
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete=
+        {deleteTask} />
+      ) : (
+        'No Tasks made yet!'
+      )}
     </div>    
   )
 }
+
 export default App
