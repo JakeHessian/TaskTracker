@@ -109,3 +109,8 @@ footer {
   margin-top: 30px;
   text-align: center;
 }
+
+.task-exit {
+  opacity: 0;
+  transition: opacity 1600ms ease-out;
+}
