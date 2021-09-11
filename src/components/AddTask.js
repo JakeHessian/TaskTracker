@@ -1,8 +1,23 @@
 import { useState } from "react";
-const AddTask = () => {
+
+const AddTask = ({ onAdd }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (!text) {
+      alert("Please add a task!");
+      return;
+    }
+    onAdd({ text, day, reminder });
+
+    setText("");
+    setText("");
+    setText(false);
+  };
+  
   const buttonStyle = {
     //display: block,
     width: "100%",
@@ -12,7 +27,7 @@ const AddTask = () => {
     //marginRight: "50px",
   };
   return (
-    <form className="add-form">
+    <form className="add-form" onSubmit={onSubmit}>
       <div className="form-control">
         <label>Task</label>
         <input
@@ -31,13 +46,14 @@ const AddTask = () => {
           placeholder="Add Day and Time"
         ></input>
       </div>
-      <div
-        className="form-control form-control-check"
-        onChange={(e) => setText(e.currentTarget.checked)}
-        value={reminder}
-      >
-        <label>Set Time</label>
-        <input type="checkbox"></input>
+      <div className="form-control form-control-check">
+        <label>Set Reminder</label>
+        <input
+          type="checkbox"
+          checked={reminder}
+          onChange={(e) => setReminder(e.currentTarget.checked)}
+          value={reminder}
+        ></input>
       </div>
       <input
         className="btn"

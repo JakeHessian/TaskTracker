@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 
-const Header = ({ title }) => {
+const Header = ({ title, onAdd, showAdd }) => {
   const onClick = () => {
     console.log("Click!~");
   };
@@ -13,7 +13,7 @@ const Header = ({ title }) => {
         background_color="Blue"
         text_color="white"
         text="Add"
-        onClick={onClick}
+        onClick={onAdd}
       />
     </header>
   );
