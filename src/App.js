@@ -1,6 +1,9 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
+import { FaFontAwesome, FaTimes } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+
 import { useState } from "react";
 
 const App = () => {
@@ -59,6 +62,12 @@ const App = () => {
       ) : (
         "No Tasks made yet!"
       )}
+      <footer>
+        <button className="btn rounded-pill">
+          <FaGithub />
+        </button>
+        Jake Hessian - 2021
+      </footer>
     </div>
   );
 };

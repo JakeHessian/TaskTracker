@@ -7,9 +7,10 @@ const Header = ({ title, onAdd, showAdd }) => {
     <header className="header">
       <h1>{title}</h1>
       <Button
-        background_color="Blue"
+        //dynamically change how the button looks based on showAdd prop
+        background_color={showAdd ? "red" : "blue"}
         text_color="white"
-        text={showAdd ? "Close" : "Add"}
+        text={showAdd ? "Cancel" : "Add"}
         onClick={onAdd}
       />
     </header>
